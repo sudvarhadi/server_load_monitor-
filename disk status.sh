@@ -1,4 +1,13 @@
- #!/bin/sh
+///////////////////////////////////////////////////////////
+/ Aurthor :-  Sudarshan Varhadi                           /
+/ code :-  linux bash code			          /
+/ USe :- health checkup of linux server (alerts on mail)  /
+/ date :- 15/3/2019                                       /
+/ mail:- sudarshanvarhadi@gmail.com                       /
+///////////////////////////////////////////////////////////
+
+
+#!/bin/bash
 df -H | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print $5 " " $1 }' | while read output;
 do
   echo $output
