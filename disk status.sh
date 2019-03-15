@@ -5,12 +5,10 @@ do
   used=$(echo $output | awk '{ print $1}' | cut -d'%' -f1  )
   partition=$(echo $output | awk '{ print $2 }' )
   if [ $usep -ge 80 ]; then
-    echo "The partition \"$partition\" on $(hostname) has used $used% at $(date)" | mail -s "Disk space alert: $used% used" sudarshan@adaptify.com.au
+    echo "The partition \"$partition\" on $(hostname) has used $used% at $(date)" | mail -s "Disk space alert: $used% used" localhost@sample.com
  fi
 done
-root@thrawn [/sudarshan]# cd  status1.sh
--bash: cd: status1.sh: Not a directory
-root@thrawn [/sudarshan]# cat   status1.sh
+
 
 
 
@@ -31,7 +29,7 @@ echo /space.txt
 echo ========================================================= >> /space.txt
 df -hT &>> /space.txt
 echo ========================================================= >> /space.txt
-#(echo -e "From: help@adaptify.com.au \nTo: help@adaptify.com.au \nMIME-Version: 1.0 \nSubject: Disk spce usage is upto  80% \n "; cat /space.txt) | /usr/sbin/sendmail -t
+#(echo -e "From: localhost@sample.com \nTo: localhost@sample.com \nMIME-Version: 1.0 \nSubject: Disk spce usage is upto  80% \n "; cat /space.txt) | /usr/sbin/sendmail -t
 else
 echo "-------------------------------------------" >> /space.txt
 fi
@@ -102,6 +100,6 @@ echo "-------------------------------------------" >> /space.txt
 /bin/df -h >> /space.txt
 echo "-----------------THE END-------------------" >> /space.txt
 
-(echo -e "From: sudarshan@adaptify.com.au \nTo: sudarshan@adaptify.com.au \nMIME-Version: 1.0 \nSubject: Server status \n "; cat /space.txt) | /usr/sbin/sendmail -t
+(echo -e "From: localhost@sample.com \nTo: localhost@sample.com \nMIME-Version: 1.0 \nSubject: Server status \n "; cat /space.txt) | /usr/sbin/sendmail -t
 
 rm -f  /space.txt
